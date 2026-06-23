@@ -1,0 +1,17 @@
+{
+    "name": "movieplex/platform",
+    "description": "MoviePlex - Cinema Booking Platform",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "be/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

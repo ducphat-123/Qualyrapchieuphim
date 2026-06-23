@@ -1,0 +1,15 @@
+# MovieFlex Root Redirection Config
+# Handles clean URL redirection from the project root to the fe/pages entry point.
+
+RewriteEngine On
+
+# 1. Redirect empty root url (e.g. /Qualyrapchieuphim/ or /) to fe/pages/index.php
+RewriteRule ^$ fe/pages/index.php [L,R=302]
+
+# 2. Redirect index.php in the root to fe/pages/index.php
+RewriteRule ^index\.php$ fe/pages/index.php [L,R=302]
+
+# 3. Redirect any other root-level .php requests that do not exist physically to fe/pages/
+# Example: /home.php -> /fe/pages/home.php (preserving query string parameters)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+\.php)$ fe/pages/$1 [L,R=302,QSA]
